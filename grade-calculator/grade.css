@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #a18cd1, #fbc2eb, #fad0c4, #ffecd2);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.typing-text {
+  font-size: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards;
+  user-select: none;
+  caret-color: transparent;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 5px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #5a009d;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subject {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.subject input {
+  flex: 1;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+}
+body.dark-mode .container {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Themes */
+body.theme-default {
+  background: linear-gradient(-45deg, #a18cd1, #fbc2eb, #fad0c4, #ffecd2);
+}
+body.theme-blue {
+  background: linear-gradient(-45deg, #89f7fe, #66a6ff, #6dd5ed, #2193b0);
+}
+body.theme-dark {
+  background: #121212;
+}
+body.theme-green {
+  background: linear-gradient(-45deg, #a8e063, #56ab2f, #c6ffdd, #f0f9e8);
+}
