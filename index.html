@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Projects</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: linear-gradient(120deg, #a18cd1, #fbc2eb);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(120deg, #a18cd1, #fbc2eb, #fad0c4, #ffecd2);
+      background-size: 400% 400%;
+      animation: gradient 12s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
       color: #333;
     }
+
     a {
       display: block;
-      margin: 15px;
-      padding: 10px;
+      margin: 15px auto;
+      padding: 12px;
       font-size: 18px;
       text-decoration: none;
       color: white;
       background: #6a0dad;
-      border-radius: 8px;
+      border-radius: 10px;
       width: 250px;
-      margin-left: auto;
-      margin-right: auto;
+      transition: transform 0.2s, background 0.3s;
     }
+
     a:hover {
       background: #4a007a;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Projects</h1>
-  <a href="portfolio/index.html">Portfolio</a>
-  <a href="grade-calculator/index.html">Grade Calculator</a>
-  <a href="todo-app/index.html">To-Do App</a>
+  <div class="container">
+    <h1>Welcome to My Projects</h1>
+    <a href="portfolio/index.html">Portfolio</a>
+    <a href="grade-calculator/index.html">Grade Calculator</a>
+    <a href="todo-app/index.html">To-Do App</a>
+  </div>
 </body>
 </html>
