@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade Calculator</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#6a0dad" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <link rel="stylesheet" href="grade.css" />
+</head>
+<body>
+  <div class="container">
+    <h2><span class="typing-text">Student Grade Calculator</span></h2>
+
+    <div id="inputs">
+      <div class="subject">
+        <input type="number" placeholder="Subject 1 Marks" readonly onclick="this.readOnly=false;" onblur="this.readOnly=true;" />
+        <button onclick="deleteSubject(this)">🗑️</button>
+      </div>
+      <div class="subject">
+        <input type="number" placeholder="Subject 2 Marks" readonly onclick="this.readOnly=false;" onblur="this.readOnly=true;" />
+        <button onclick="deleteSubject(this)">🗑️</button>
+      </div>
+      <div class="subject">
+        <input type="number" placeholder="Subject 3 Marks" readonly onclick="this.readOnly=false;" onblur="this.readOnly=true;" />
+        <button onclick="deleteSubject(this)">🗑️</button>
+      </div>
+    </div>
+
+    <button onclick="addSubject()">➕ Add Subject</button>
+    <button onclick="calculateGrade()">✅ Calculate</button>
+    <button onclick="sortSubjects()">🔢 Sort by Marks</button>
+    <p id="result"></p>
+    <button onclick="downloadResult()">⬇️ Download Result</button>
+    <button onclick="toggleDark()">🌓 Toggle Dark Mode</button>
+    <button id="installBtn" style="display:none; margin-top:15px;">📲 Install App</button>
+
+    <select id="themeSelector" onchange="changeTheme()" style="margin-top: 10px; padding: 10px;">
+      <option value="default">🎨 Default</option>
+      <option value="blue">💙 Blue</option>
+      <option value="dark">🌑 Dark</option>
+      <option value="green">💚 Green</option>
+    </select>
+  </div>
+
+  <script src="grade.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered:', reg))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
